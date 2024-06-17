@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  vincit-java-todo-db:
+    image: mysql/mysql-server:latest
+    container_name: vincit-java-todo-db
+    restart: always
+    environment:
+      - MYSQL_DATABASE=tarefas
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+      - '3306:3306'
+    volumes:
+      - vincit-java-todo-db:/var/lib/mysql
+
+volumes:
+  vincit-java-todo-db:
+    driver: local
